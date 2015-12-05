@@ -54,7 +54,7 @@ function recipeForm(){
   form += "<div class='form-group'><label for='input-ids' class='col-lg-2 control-label'>Image</label>";
   form += "<div class='col-lg-10'><a href='#' onclick='addImage()' class='btn btn-primary'>Select Image</a>";
   form += "</div></div>";//image
-  form += "<div class='form-group' id='myImage'></div>";
+  form += "<img class='form-group' id='myImage'>";
   form += "<div class='form-group'><div class='col-lg-10 col-lg-offset-2'>";
   form += "<button type='reset' onclick='viewRecipe()' class='btn btn-default'>Cancel</button>";
   form += "<input type='button' onclick='addRecipe()' class='btn btn-primary' value='Submit'></div></div>";
@@ -192,7 +192,7 @@ function addRecipe(){
       scrollTop:0}, "slow");
 }
 
-
+var recipeImage;
 function addImage(){
   // alert(addImage);
   navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
@@ -202,6 +202,8 @@ function addImage(){
     function onSuccess(imageURI) {
       var image = document.getElementById('myImage');
       image.src = imageURI;
+      recipeImage = imageURI;
+      alert(recipeImage+" ...image uri");
     }
 
   function onFail(message) {
