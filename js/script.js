@@ -147,7 +147,7 @@ function makeid(){
 }
 
 function addRecipe(){
-  alert("addRece");
+  // alert("addRece");
   var id = makeid();
   var name=mealname.value;
   var over=overview.value;
@@ -163,16 +163,16 @@ function addRecipe(){
     testd = "instruction";
     var countd = testd.concat(i);
     instruction[i]= document.getElementById(countd).value;
-    alert("instruction..." +instruction[i]);
+    // alert("instruction..." +instruction[i]);
     var strUrl = "http://cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=12&recipe="+id+"&instruction="+instruction[i];
   		var objResult=sendRequest(strUrl);
   }
   var msg="";
-  alert(id+" ---id");
-  alert(name+" ---name");
-  alert(over+" ---view");
-  alert(chef+" ---chef");
-  alert(c+" ---cat");
+  // alert(id+" ---id");
+  // alert(name+" ---name");
+  // alert(over+" ---view");
+  // alert(chef+" ---chef");
+  // alert(c+" ---cat");
 	var strUrl = "http://cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=1&id="+id+"&name="+name+"&chef="+chef+"&overview="+over+"&ingr="+ingredient+"&image="+img+"&cat="+c;
 		var objResult=sendRequest(strUrl);
 		if(objResult.result==1){
@@ -190,10 +190,13 @@ function addRecipe(){
 	    msg += "Could not add recipe.</div>";
 		}
     $("#alert").html(msg);
+    $("html, body").animate({
+      scrollTop:0}, "slow");
 }
 
 
 function addImage(){
+  alert(addImage);
   navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
     destinationType: Camera.DestinationType.FILE_URI });
 }
