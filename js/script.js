@@ -51,10 +51,10 @@ function recipeForm(){
   form += "<div class='col-lg-10'><input type='text' class='form-control' id='cat' placeholder='Category'>";
   form += "<br></div>";
 
-  form += "<div class='form-group'><label for='input-ids' class='col-lg-2 control-label'>Image</label>";
-  form += "<div class='col-lg-10'><a href='#' onclick='addImage()' class='btn btn-primary'>Select Image</a>";
+  form += "<div style='padding:20px' class='form-group'><label for='input-ids' class='col-lg-2 control-label'>Image</label>";
+  form += "<div style='padding:20px' class='col-lg-10'><a href='#' onclick='addImage()' class='btn btn-primary'>Select Image</a>";
   form += "</div></div>";//image
-  form += "<img class='form-group img-responsive img-rounded' id='myImage'>";
+  form += "<img style='padding:40px' class='form-group img-responsive img-rounded' id='myImage'>";
   form += "<div class='form-group'><div class='col-lg-10 col-lg-offset-2'>";
   form += "<button type='reset' onclick='viewRecipe()' class='btn btn-default'>Cancel</button>";
   form += "<input type='button' onclick='addRecipe()' class='btn btn-primary' value='Submit'></div></div>";
@@ -160,7 +160,7 @@ function addRecipe(){
   var instruction =[];
   var chef=localStorage.getItem("chef");
   var c=cat.value;
-  var img = "img/meal2.jpg";
+  var img = recipeImage;
 
 
   for (var i = 0; i < count; i++) {
