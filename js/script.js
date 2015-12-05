@@ -54,7 +54,7 @@ function recipeForm(){
   form += "<div style='padding:20px' class='form-group'><label for='input-ids' class='col-lg-2 control-label'>Image</label>";
   form += "<div style='padding:20px' class='col-lg-10'><a href='#' onclick='addImage()' class='btn btn-primary'>Select Image</a>";
   form += "</div></div>";//image
-  form += "<img style='padding:40px' class='form-group img-responsive img-rounded' id='myImage'>";
+  form += "<img style='padding-left:40px' class='form-group img-responsive img-rounded' id='myImage'>";
   form += "<div class='form-group'><div class='col-lg-10 col-lg-offset-2'>";
   form += "<button type='reset' onclick='viewMyRecipe()' class='btn btn-default'>Cancel</button>";
   form += "<input type='button' onclick='addRecipe()' class='btn btn-primary' value='Submit'></div></div>";
@@ -81,7 +81,8 @@ function recipeDetails(id){
 		var objResult=sendRequest(strUrl);
 		if(objResult.result==1){
       var recipe="";
-      recipe += "<legend>"+objResult.recipe[0].mealname+"</legend><br>";
+      recipe += "<legend style='padding-left:20px'>"+objResult.recipe[0].mealname+"</legend><br>";
+      recipe += "<img style='padding-left:20px' class='img-responsive img-rounded'>";
       recipe += "<div class='panel panel-default'><div class='panel-heading'>OVERVIEW</div>";
       recipe += "<div class='panel-body'>"+objResult.recipe[0].overview+"</div></div>";
 
@@ -228,7 +229,6 @@ function addRecipe(){
 
 var recipeImage;
 function addImage(){
-  // alert(addImage);
   navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
     destinationType: Camera.DestinationType.FILE_URI });
 }
@@ -237,7 +237,6 @@ function addImage(){
       var image = document.getElementById('myImage');
       image.src = imageURI;
       recipeImage = imageURI;
-      // alert(recipeImage+" ...image uri");
     }
 
   function onFail(message) {
