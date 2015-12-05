@@ -56,7 +56,7 @@ function recipeForm(){
   form += "</div></div>";//image
   form += "<img style='padding:40px' class='form-group img-responsive img-rounded' id='myImage'>";
   form += "<div class='form-group'><div class='col-lg-10 col-lg-offset-2'>";
-  form += "<button type='reset' onclick='viewRecipe()' class='btn btn-default'>Cancel</button>";
+  form += "<button type='reset' onclick='viewMyRecipe()' class='btn btn-default'>Cancel</button>";
   form += "<input type='button' onclick='addRecipe()' class='btn btn-primary' value='Submit'></div></div>";
 
   form += "</fieldset></form></div>";
@@ -115,8 +115,8 @@ function recipeDetails(id){
 
 //view recipe
 function viewRecipe(){
-  $("#view").attr("class", "active");
-  $("#form").attr("class", "");
+  // $("#view").attr("class", "active");
+  // $("#form").attr("class", "");
 	var msg="";
 	var strUrl = "http://cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=2";
 		var objResult=sendRequest(strUrl);
@@ -140,6 +140,38 @@ function viewRecipe(){
       $("#alert").html(msg);
 		}
 }
+
+
+function viewMyRecipe(){
+  $("#view").attr("class", "active");
+  $("#form").attr("class", "");
+  var msg="";
+  var chef=localStorage.getItem("chef");
+  var strUrl = "http://cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=17&chef="+chef;
+    var objResult=sendRequest(strUrl);
+    if(objResult.result==1){
+      var list ="";
+      for ( var i = 0; i<objResult.recipes.length; i++) {
+        list += "<div class='col-md-4'><div class='card'><div class='card-image' style='cursor: pointer' onclick=recipeDetails('"+objResult.recipe[i].recipe_id+"')>";
+        list += "<img width='100%' class='img-responsive' src='"+objResult.recipe[i].meal_image +"'>";
+        list += "</div>";
+        list += "<div class='card-content' style='cursor: pointer'onclick=recipeDetails('"+objResult.recipe[i].recipe_id+"')>";
+        list += "<span class='card-title'>"+objResult.recipe[i].mealname+"</span>";
+        list += "</div></div></div>";
+      }
+      $("#content").html(list);
+    }else{
+      msg = "";
+      msg += "<div class='alert alert-warning alert-dismissible' role='alert'>";
+      msg += "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+      msg += "<span aria-hidden='true'>&times;</span></button>";
+      msg += "No Recipes available.</div>";
+      $("#alert").html(msg);
+    }
+}
+
+
+
 
 function makeid(){
     var text = "";
