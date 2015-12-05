@@ -4,9 +4,8 @@ $(document).ready(
   validateLogin()
 );
 
-document.addEventListerner('deviceready', function(){
-
-}, false);
+document.addEventListerner('deviceready', onDeviceReady, false);
+function onDeviceReady(){console.log(navigator.camera);}
 
 function validateLogin(){
   if(localStorage.getItem("chef")==null){
