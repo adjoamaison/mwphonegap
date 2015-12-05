@@ -4,6 +4,10 @@ $(document).ready(
   validateLogin()
 );
 
+document.addEventListerner('deviceready', function(){
+
+}, false);
+
 function validateLogin(){
   if(localStorage.getItem("chef")==null){
     window.location.assign("index.html");
@@ -209,3 +213,4 @@ function addImage(){
   function onFail(message) {
       alert('Failed because: ' + message);
   }
+
