@@ -14,7 +14,7 @@
 		</author>
 		<plugin name="cordova-plugin-camera" spec="1.2.0" source="pgb" />
 		<icon src="img/cuisine.png"/>
-		<gap:splash src ="img/splash.png"/>
+		<gap:splash src ="splash.png"/>
 		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
