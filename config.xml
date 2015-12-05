@@ -13,7 +13,7 @@
 			Adjoa Maison
 		</author>
 		<plugin name="com.logilite.vision.camera" spec="0.2.11" source="pgb" />
-		<icon src="cuisine.png"/>
+		<icon src="img/cuisine.png"/>
 		<gap:splash src ="img/splash.png"/>
 		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 		<allow-navigation href="*" />
