@@ -148,6 +148,7 @@ function viewMyRecipe(){
   var msg="";
   var chef=localStorage.getItem("chef");
   var strUrl = "http://cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=17&chef="+chef;
+  console.log(strUrl);
     var objResult=sendRequest(strUrl);
     if(objResult.result==1){
       var list ="";
