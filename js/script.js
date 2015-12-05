@@ -72,7 +72,7 @@ function displayUname(){
 }
 
 function recipeDetails(id){
-  var strUrl = "../controller/response.php?cmd=3&id="+id;
+  var strUrl = "cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=3&id="+id;
 		var objResult=sendRequest(strUrl);
 		if(objResult.result==1){
       var recipe="";
@@ -84,7 +84,7 @@ function recipeDetails(id){
       recipe += "<div class='panel panel-default'><div class='panel-body'>";
       recipe += objResult.recipe[0].ingredients+"</div></div></div>";
 
-      strUrl = "../controller/response.php?cmd=13&id="+id;
+      strUrl = "cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=13&id="+id;
     		var objResult=sendRequest(strUrl);
     		if(objResult.result==1){
           recipe += "<div class='panel panel-default'><div class='panel-heading'>INSTRUCTIONS</div>";
@@ -113,7 +113,7 @@ function viewRecipe(){
   $("#view").attr("class", "active");
   $("#form").attr("class", "");
 	var msg="";
-	var strUrl = "../controller/response.php?cmd=2";
+	var strUrl = "cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=2";
 		var objResult=sendRequest(strUrl);
 		if(objResult.result==1){
 			var list ="";
@@ -164,7 +164,7 @@ function addRecipe(){
     var countd = testd.concat(i);
     instruction[i]= document.getElementById(countd).value;
     alert("instruction..." +instruction[i]);
-    var strUrl = "../controller/response.php?cmd=12&recipe="+id+"&instruction="+instruction[i];
+    var strUrl = "cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=12&recipe="+id+"&instruction="+instruction[i];
   		var objResult=sendRequest(strUrl);
   }
   var msg="";
@@ -173,7 +173,7 @@ function addRecipe(){
   alert(over+" ---view");
   alert(chef+" ---chef");
   alert(c+" ---cat");
-	var strUrl = "../controller/response.php?cmd=1&id="+id+"&name="+name+"&chef="+chef+"&overview="+over+"&ingr="+ingredient+"&image="+img+"&cat="+c;
+	var strUrl = "cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=1&id="+id+"&name="+name+"&chef="+chef+"&overview="+over+"&ingr="+ingredient+"&image="+img+"&cat="+c;
 		var objResult=sendRequest(strUrl);
 		if(objResult.result==1){
       msg = "";

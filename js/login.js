@@ -18,7 +18,7 @@ function sendRequest(u){
 function login(){
   var name = username.value;
   var pword = inputPassword.value;
-  var strUrl = "../controller/response.php?cmd=16&name="+name+"&pword="+pword;
+  var strUrl = "cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=16&name="+name+"&pword="+pword;
   var objResult=sendRequest(strUrl);
   if(objResult.chef!=false){
     // alert(objResult.chef.chef_name);
@@ -33,7 +33,7 @@ function addChef(){
   var num = number.value;
   var ad = add.value;
   var cemail = email.value;
-  var strUrl = "../controller/response.php?cmd=5&name="+name+"&pword="+pword+"&number="+num+"&address="+ad+"&email="+cemail;
+  var strUrl = "cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=5&name="+name+"&pword="+pword+"&number="+num+"&address="+ad+"&email="+cemail;
   var objResult=sendRequest(strUrl);
   if(objResult.result==1){
     localStorage.setItem("chef", name);
