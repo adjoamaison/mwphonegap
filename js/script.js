@@ -29,6 +29,7 @@ function recipeForm(){
   $("#form").attr("class", "active");
 	$("#view").attr("class", "");
   var form="";
+  form += "<div style='padding:30px'>";
   form += "<form class='form-horizontal'><fieldset><legend>Add New Recipe</legend>";
 
   form += "<div class='form-group'><label for='mealname' class='col-lg-2 control-label'>Recipe Name</label>";
@@ -53,11 +54,12 @@ function recipeForm(){
   form += "<div class='form-group'><label for='input-ids' class='col-lg-2 control-label'>Image</label>";
   form += "<div class='col-lg-10'><a href='#' onclick='addImage()' class='btn btn-primary'>Select Image</a>";
   form += "</div></div>";//image
+  form += "<div class='form-group' id='myImage'></div>";
   form += "<div class='form-group'><div class='col-lg-10 col-lg-offset-2'>";
   form += "<button type='reset' onclick='viewRecipe()' class='btn btn-default'>Cancel</button>";
   form += "<input type='button' onclick='addRecipe()' class='btn btn-primary' value='Submit'></div></div>";
 
-  form += "</fieldset></form>";
+  form += "</fieldset></form></div>";
 
   $("#content").html(form);
 }
@@ -150,7 +152,6 @@ function makeid(){
 }
 
 function addRecipe(){
-  // alert("addRece");
   var id = makeid();
   var name=mealname.value;
   var over=overview.value;
@@ -161,21 +162,15 @@ function addRecipe(){
   var c=cat.value;
   var img = "img/meal2.jpg";
 
-  // instruction.length=count;
+
   for (var i = 0; i < count; i++) {
     testd = "instruction";
     var countd = testd.concat(i);
     instruction[i]= document.getElementById(countd).value;
-    // alert("instruction..." +instruction[i]);
     var strUrl = "http://cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=12&recipe="+id+"&instruction="+instruction[i];
   		var objResult=sendRequest(strUrl);
   }
   var msg="";
-  // alert(id+" ---id");
-  // alert(name+" ---name");
-  // alert(over+" ---view");
-  // alert(chef+" ---chef");
-  // alert(c+" ---cat");
 	var strUrl = "http://cs.ashesi.edu.gh/~csashesi/class2016/agatha-maison/MWC/mwfinal/response.php?cmd=1&id="+id+"&name="+name+"&chef="+chef+"&overview="+over+"&ingr="+ingredient+"&image="+img+"&cat="+c;
 		var objResult=sendRequest(strUrl);
 		if(objResult.result==1){
@@ -199,7 +194,7 @@ function addRecipe(){
 
 
 function addImage(){
-  alert(addImage);
+  // alert(addImage);
   navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
     destinationType: Camera.DestinationType.FILE_URI });
 }
