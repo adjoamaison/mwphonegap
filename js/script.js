@@ -82,7 +82,7 @@ function recipeDetails(id){
 		if(objResult.result==1){
       var recipe="";
       recipe += "<legend style='padding-left:15px'>"+objResult.recipe[0].mealname+"</legend><br>";
-      recipe += "<img style='padding-left:15px' class='img-responsive img-rounded' src='"+objResult.recipe[0].meal_image+"'>";
+      recipe += "<img class='img-responsive img-rounded' src='"+objResult.recipe[0].meal_image+"'>";
       recipe += "<div class='well well-lg'>Category: "+objResult.recipe[0].category+"</div>";
       recipe += "<div class='panel panel-default'><div class='panel-heading'>OVERVIEW</div>";
       recipe += "<div class='panel-body'>"+objResult.recipe[0].overview+"</div></div>";
