@@ -152,7 +152,7 @@ function viewMyRecipe(){
     var objResult=sendRequest(strUrl);
     if(objResult.result==1){
       var list ="";
-      for ( var i = 0; i<objResult.recipes.length; i++) {
+      for ( var i = 0; i<objResult.recipe.length; i++) {
         list += "<div class='col-md-4'><div class='card'><div class='card-image' style='cursor: pointer' onclick=recipeDetails('"+objResult.recipe[i].recipe_id+"')>";
         list += "<img width='100%' class='img-responsive' src='"+objResult.recipe[i].meal_image +"'>";
         list += "</div>";
@@ -212,7 +212,7 @@ function addRecipe(){
       msg += "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
       msg += "<span aria-hidden='true'>&times;</span></button>";
       msg += "Recipe succefully added.</div>";
-
+      recipeForm();
     }else{
 			msg = "";
 	    msg += "<div class='alert alert-warning alert-dismissible' role='alert'>";
@@ -224,6 +224,7 @@ function addRecipe(){
     $("html, body").animate({
       scrollTop:0}, "slow");
 }
+
 
 var recipeImage;
 function addImage(){
